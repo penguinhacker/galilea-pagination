@@ -1,0 +1,45 @@
+<div class="contenedor">
+  <h1 style="padding-top: 30px;"> Lista de Pokémon</h1>
+</div>
+
+
+<div class="contenedor">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Nombre</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of pokemons | paginate: { itemsPerPage: pageSize, currentPage: page, totalItems: totalPokemons }" >
+      <td (click)="!loading && alertar(item.name)">
+        <div>{{item.name}}</div>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+
+
+<pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
+
+<div class="contenedor" *ngIf="loading">
+  <mat-spinner color="warn" diameter="25"></mat-spinner>
+</div>
+
+
+
+
+</div>
+
+
+<!--
+<ul>
+  <li *ngFor="let item of pokemons | paginate: { itemsPerPage: pageSize, currentPage: page, totalItems: totalPokemons }"> 
+    <div (click)="alertar(item.name)">pokemon: {{item.name}}</div>
+  </li>
+</ul>
+-->
+
+           
