@@ -1,9 +1,16 @@
-<h2 mat-dialog-title>Información de {{data.pokemon_name}}</h2>
+<h2 mat-dialog-title>Información de {{data.name}}</h2>
     <div mat-dialog-content>
     
       <div class="container text-center">
+
+        <div *ngIf="data.sprite_id != null">
+          <img src={{data.sprite_id}}>
+        </div>
+        <div *ngIf="data.sprite_id == null">
+          <img src="assets/images/Not-Found.png">
+        </div>
         
-        <img src={{data.sprites.front_default}}>
+        
 
 
         <div class="row align-items-start">
@@ -11,7 +18,7 @@
             Carácterísticas:
             <ul class="list-group list-group-flush">
               <li class="list-group-item">Peso: {{data.weight}}</li>
-              <li class="list-group-item">Experiencia base: {{data.base_experience}}</li>
+              <li class="list-group-item">Experiencia base: {{data.base_xp}}</li>
               <li class="list-group-item">Altura: {{data.height}}</li>
               
             </ul>
@@ -22,8 +29,8 @@
             <br>
 
             <ul class="list-group">
-              <li class="list-group-item list-group-item-light" *ngFor="let habilidad of data.abilities">
-                {{habilidad.ability.name}}
+              <li class="list-group-item list-group-item-light" *ngFor="let habil of data.abilities">
+                {{habil}}
               </li>
             </ul>
 

@@ -17,14 +17,7 @@ export class PokemonService {
     return this.http.get(`https://pokeapi.co/api/v2/pokemon?offset=0&limit=1`);
   }
 
-  /*
-  getPokemonDetails(url: string): Observable<any> {
-    return this.http.get(url);
-  }
-  */
-
   getPokemonDetails(name:string ): Observable<any> {
-    console.log(`Preguntando por ${name}`);
     return this.http.get(`https://pokeapi.co/api/v2/pokemon/${name}`);
   }
   

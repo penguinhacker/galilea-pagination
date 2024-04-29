@@ -11,10 +11,17 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let item of pokemons | paginate: { itemsPerPage: pageSize, currentPage: page, totalItems: totalPokemons }" >
-      <td (click)="!loading && alertar(item.name)">
+    <tr (click)="!loading && showModal(i)" *ngFor="let item of pokemons | paginate: { itemsPerPage: pageSize, currentPage: page, totalItems: totalPokemons } ; let i = index" >
+      <td >
         <div>{{item.name}}</div>
       </td>
+
+      <td >
+        <div>
+          <img src={{item.sprite_id}} class="sprite">
+        </div>
+      </td>
+
     </tr>
     
   </tbody>

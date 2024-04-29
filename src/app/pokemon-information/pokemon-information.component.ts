@@ -1,5 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef,} from '@angular/material/dialog';
+import { Pokemon } from '../models/pokemon.model';
 
 @Component({
   selector: 'app-pokemon-information',
@@ -9,7 +10,9 @@ import {MAT_DIALOG_DATA, MatDialogRef,} from '@angular/material/dialog';
 export class PokemonInformationComponent {
 
   constructor(public dialogRef: MatDialogRef<PokemonInformationComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any) { }
+    @Inject(MAT_DIALOG_DATA) public data: Pokemon) { }
+
+
 
   closeModal(): void {
     this.dialogRef.close();
