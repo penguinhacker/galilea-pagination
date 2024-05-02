@@ -13,10 +13,6 @@ export class PokemonService {
     return this.http.get(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`);
   }
 
-  getTotalPokemons(): Observable<any> {
-    return this.http.get(`https://pokeapi.co/api/v2/pokemon?offset=0&limit=1`);
-  }
-
   getPokemonDetails(name:string ): Observable<any> {
     return this.http.get(`https://pokeapi.co/api/v2/pokemon/${name}`);
   }

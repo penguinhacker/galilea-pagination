@@ -17,10 +17,11 @@ import { RouterModule, Routes } from '@angular/router';
 import {MatTableModule} from '@angular/material/table';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
-
+/*
 const appRoutes: Routes = [
   {path:"", component: PokemonTableComponent},
 ]
+*/
 
 @NgModule({
   declarations: [
@@ -37,7 +38,6 @@ const appRoutes: Routes = [
     MatToolbarModule,
     MatTableModule,
     MatProgressSpinnerModule,
-    RouterModule.forRoot(appRoutes),
     
     
     

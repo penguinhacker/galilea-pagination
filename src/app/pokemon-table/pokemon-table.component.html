@@ -29,7 +29,8 @@
 
 
 
-<pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
+<pagination-controls (pageChange)="onPageChange($event)" previousLabel="Anterior"
+nextLabel="Siguiente"></pagination-controls>
 
 <div class="contenedor" *ngIf="loading">
   <mat-spinner color="warn" diameter="25"></mat-spinner>
@@ -41,12 +42,5 @@
 </div>
 
 
-<!--
-<ul>
-  <li *ngFor="let item of pokemons | paginate: { itemsPerPage: pageSize, currentPage: page, totalItems: totalPokemons }"> 
-    <div (click)="alertar(item.name)">pokemon: {{item.name}}</div>
-  </li>
-</ul>
--->
 
            

@@ -4,6 +4,7 @@ import { PokemonInformationComponent } from '../pokemon-information/pokemon-info
 import { MatDialog } from '@angular/material/dialog';
 import { Pokemon } from '../models/pokemon.model';
 import { forkJoin } from 'rxjs';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 
 @Component({
@@ -24,9 +25,6 @@ export class PokemonTableComponent implements OnInit {
   ngOnInit(): void {
     // Valores iniciales
     this.getPokemons();
-    this.pokemonService.getTotalPokemons().subscribe((data: any) => {
-      this.totalPokemons = data.count
-    })
   }
 
   // Funcion que hace el llamado a la Api
@@ -35,6 +33,8 @@ export class PokemonTableComponent implements OnInit {
     this.pokemonService.getPokemons(offset, this.pageSize)
       .subscribe((data: any) => {
         this.getInfo(data.results);
+        this.totalPokemons = data.count;
+
       });
   }
 
